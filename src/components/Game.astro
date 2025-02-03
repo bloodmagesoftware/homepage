@@ -57,9 +57,9 @@ const { title, img, genres, platforms, release, price } = Astro.props;
     Array.isArray(img) ? (
       <div class="flex overflow-x-auto relative flex-row gap-8 w-full overflow-y-clip">
         {img.map((x) =>
-          x.includes("youtube") ? (
+          x.startsWith("https://") ? (
             <iframe
-              class="block my-4 h-42 aspect-auto"
+              class="block my-4 h-64 aspect-auto"
               width="560"
               height="315"
               src={x}
@@ -67,8 +67,12 @@ const { title, img, genres, platforms, release, price } = Astro.props;
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             />
+          ) : x.endsWith(".mp4") ? (
+            <video controls class="block my-4 h-64 aspect-auto">
+              <source src={x} type="video/mp4" />
+            </video>
           ) : (
-            <img class="block my-4 h-42 aspect-auto" src={x} class="block" />
+            <img class="block my-4 h-64 aspect-auto" src={x} class="block" />
           ),
         )}
       </div>
