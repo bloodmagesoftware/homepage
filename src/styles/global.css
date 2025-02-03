@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
-* {
-  scrollbar-color: var(--color-neutral-400) var(--color-neutral-700);
+:root,
+body {
+  scrollbar-color: var(--color-neutral-400) var(--color-neutral-900);
+  scrollbar-width: auto;
+}
+
+body * {
+  scrollbar-color: var(--color-neutral-400) var(--color-neutral-800);
   scrollbar-width: auto;
 }
 
