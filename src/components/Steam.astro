@@ -1,0 +1,14 @@
+---
+import steamLogo from "../assets/steam.svg";
+const { href } = Astro.props;
+---
+
+<a
+  href={href}
+  class="inline-flex flex-row gap-2 items-center py-1 px-2 m-2 rounded cursor-pointer bg-slate-600 w-fit hover:bg-sky-600"
+>
+  <img src={steamLogo.src} class="h-8 aspect-square" />
+  <span class="text-white">
+    <slot />
+  </span>
+</a>

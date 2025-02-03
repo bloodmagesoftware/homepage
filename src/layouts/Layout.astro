@@ -1,0 +1,21 @@
+---
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en" class="bg-neutral-900 text-neutral-300">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Bloodmage Software</title>
+  </head>
+  <body>
+    <Header />
+    <main class="px-2 md:px-0">
+      <slot />
+    </main>
+  </body>
+</html>

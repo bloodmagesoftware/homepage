@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Game from "../components/Game.astro";
+import Steam from "../components/Steam.astro";
+
+import leiden_lettering from "../assets/leiden_lettering.svg";
+
+import mageanoid_01 from "../assets/mageanoid_01.jpg";
+import mageanoid_02 from "../assets/mageanoid_02.jpg";
+import mageanoid_03 from "../assets/mageanoid_03.jpg";
+import mageanoid_04 from "../assets/mageanoid_04.jpg";
+import mageanoid_05 from "../assets/mageanoid_05.jpg";
+---
+
+<Layout>
+  <Game
+    title={{ src: leiden_lettering.src, alt: "Leiden" }}
+    img={[]}
+    genres={["Adventure", "Dark Fantasy"]}
+    platforms={["windows", "mac", "linux"]}
+    release="2025"
+  >
+    <p class="text-pretty">Work in progress</p>
+  </Game>
+
+  <Game
+    title="Mageanoid"
+    img={[
+      "https://www.youtube-nocookie.com/embed/Bg9HBJLvm68",
+      mageanoid_01.src,
+      mageanoid_02.src,
+      mageanoid_03.src,
+      mageanoid_04.src,
+      mageanoid_05.src,
+    ]}
+    genres={["Arcade", "Twin Stick Shooter"]}
+    platforms={["windows", "mac", "linux"]}
+    release="31 Jul, 2024"
+    price="Free"
+  >
+    <p class="text-pretty">
+      Dive into the heart-pounding action of Mageanoid. As a powerful mage, your
+      task is to fend off relentless waves of undead skeletons with your magical
+      powers. Each second counts as you unleash your spells and dodge the deadly
+      strikes of their swords. How long can you survive in this epic twin-stick
+      shooter?
+    </p>
+    <ul>
+      <li class="text-pretty">
+        Pixel art graphics that bring the undead world to life
+      </li>
+      <li class="text-pretty">Fast-paced twin-stick shooting action</li>
+      <li class="text-pretty">Endless waves of enemies to test your skills</li>
+    </ul>
+
+    <Steam href="https://store.steampowered.com/app/3104840/Mageanoid/"
+      >Play on Steam</Steam
+    >
+  </Game>
+</Layout>

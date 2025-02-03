@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+* {
+  scrollbar-color: var(--color-neutral-400) var(--color-neutral-700);
+  scrollbar-width: auto;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
