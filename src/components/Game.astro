@@ -59,7 +59,7 @@ const { title, img, genres, platforms, release, price } = Astro.props;
         {img.map((x) =>
           x.startsWith("https://") ? (
             <iframe
-              class="block my-4 h-64 aspect-auto"
+              class="block my-4 h-32 md:h-64 aspect-auto"
               width="560"
               height="315"
               src={x}
@@ -68,11 +68,15 @@ const { title, img, genres, platforms, release, price } = Astro.props;
               allowfullscreen
             />
           ) : x.endsWith(".mp4") ? (
-            <video controls class="block my-4 h-64 aspect-auto">
+            <video controls class="block my-4 h-32 md:h-64 aspect-auto">
               <source src={x} type="video/mp4" />
             </video>
           ) : (
-            <img class="block my-4 h-64 aspect-auto" src={x} class="block" />
+            <img
+              class="block my-4 h-32 md:h-64 aspect-auto"
+              src={x}
+              class="block"
+            />
           ),
         )}
       </div>
