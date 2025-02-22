@@ -16,7 +16,12 @@ const { title, img, genres, platforms, release, price } = Astro.props;
       typeof title === "string" ? (
         title
       ) : (
-        <img src={title.src} alt={title.alt} class="h-24 aspect-auto" />
+        <img
+          src={title.src}
+          alt={title.alt}
+          class="h-24 aspect-auto"
+          draggable="false"
+        />
       )
     }
   </h2>
@@ -29,6 +34,7 @@ const { title, img, genres, platforms, release, price } = Astro.props;
       >{
         platforms.map((x) => (
           <img
+            draggable="false"
             class="inline-block h-4 aspect-auto"
             src={
               x === "windows"
@@ -76,12 +82,18 @@ const { title, img, genres, platforms, release, price } = Astro.props;
               class="block my-4 h-32 md:h-64 aspect-auto"
               src={x}
               class="block"
+              draggable="false"
             />
           ),
         )}
       </div>
     ) : (
-      <img class="block h-32 aspect-auto" src={img} class="block" />
+      <img
+        class="block h-32 aspect-auto"
+        src={img}
+        class="block"
+        draggable="false"
+      />
     )
   }
 </section>

@@ -4,13 +4,18 @@ import bmsLettering from "../assets/bms_lettering.svg";
 ---
 
 <header class="py-2 px-4 shadow bg-neutral-800 shadow-black">
-  <a href="/" class="flex flex-row gap-2 justify-start items-center">
-    <img class="block w-24 aspect-square" src={bmsLogo.src} />
+  <a
+    href="/"
+    class="flex flex-row gap-2 justify-start items-center"
+    draggable="false"
+  >
+    <img class="block w-24 aspect-square" src={bmsLogo.src} draggable="false" />
     <h1 class="block text-2xl font-bold text-white">
       <img
         class="block h-16 aspect-auto"
         src={bmsLettering.src}
         alt="Bloodmage Software"
+        draggable="false"
       />
     </h1>
   </a>
