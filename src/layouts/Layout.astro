@@ -13,11 +13,13 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Bloodmage Software</title>
   </head>
-  <body>
-    <Header />
-    <main class="px-2 md:px-0">
-      <slot />
-    </main>
+  <body class="flex flex-col min-h-dvh">
+    <div class="flex-grow">
+      <Header />
+      <main class="px-2 md:px-0">
+        <slot />
+      </main>
+    </div>
     <Footer />
   </body>
 </html>
