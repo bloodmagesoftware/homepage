@@ -9,7 +9,7 @@ const { title, img, genres, platforms, release, price } = Astro.props;
 
 <section
   class="block py-4 px-6 my-16 rounded-xl shadow md:mx-auto bg-neutral-800 shadow-black md:w-[calc(100dvw-1rem)] md:max-w-[101rem]"
-  id={title}
+  id={typeof title == "string" ? title : title.alt}
 >
   <h2 class="text-2xl font-bold text-white">
     {
