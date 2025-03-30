@@ -3,8 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Game from "../components/Game.astro";
 import Steam from "../components/Steam.astro";
 
-import leiden_lettering from "../assets/leiden_lettering.svg";
-
+import copy from "../assets/copy.svg";
 import mageanoid_01 from "../assets/mageanoid_01.jpg";
 import mageanoid_02 from "../assets/mageanoid_02.jpg";
 import mageanoid_03 from "../assets/mageanoid_03.jpg";
@@ -18,15 +17,44 @@ import mageanoid_05 from "../assets/mageanoid_05.jpg";
   >
     Library
   </h1>
-  <Game
-    title={{ src: leiden_lettering.src, alt: "Leiden" }}
-    img={[]}
-    genres={["Adventure", "Dark Fantasy"]}
-    platforms={["windows", "mac", "linux"]}
-    release="2025"
+
+  <section
+    class="block py-4 px-6 my-16 rounded-xl shadow md:mx-auto bg-neutral-800 shadow-black md:w-[calc(100dvw-1rem)] md:max-w-[101rem]"
+    id="speicher"
   >
-    <p class="text-pretty">Work in progress</p>
-  </Game>
+    <h2 class="text-2xl font-bold text-white">Speicher</h2>
+    <br />
+    <p class="text-pretty">
+      A lightweight, embedded in-memory NoSQL database for Go applications.
+      Designed for seamless integration with zero configuration—no external
+      servers, query languages, or code generation. Offers thread-safe
+      operations and an intuitive API for direct interaction with native Go data
+      structures, accelerating development while simplifying real-time data
+      management.
+    </p>
+    <p>
+      Take a look at the <a
+        class="underline"
+        href="https://github.com/bloodmagesoftware/speicher/wiki"
+        target="_blank">documentation</a
+      > to get some examples.
+    </p>
+    <br />
+    <p
+      class="flex flex-row items-center py-2 px-4 rounded-md bg-neutral-600 w-fit"
+    >
+      <code
+        class="pr-4 break-words break-all border-r border-solid border-r-neutral-200"
+        >go get -u github.com/&shy;bloodmagesoftware/speicher@latest</code
+      >
+      <img
+        alt="copy"
+        class="ml-4 h-6 cursor-pointer hover:opacity-75"
+        src={copy.src}
+        onclick="navigator.clipboard.writeText('github.com/bloodmagesoftware/speicher')"
+      />
+    </p>
+  </section>
 
   <Game
     title="Mageanoid"
