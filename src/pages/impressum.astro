@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Mailto from "../components/Mailto.astro";
+import Tel from "../components/Tel.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout>
+  <h1
+    class="mx-auto mt-8 text-4xl font-bold text-white md:px-2 w-[calc(100dvw-1rem)] max-w-[101rem]"
+  >
+    Impressum
+  </h1>
+  <Card>
+    <p>Inhalte gemäß §5 DDG</p>
+    <br />
+    <p>Mayer & Ott GbR</p>
+    <br />
+    <p>c/o IP-Management #4914</p>
+    <p>Ludwig-Erhard-Str. 18</p>
+    <p>20459 Hamburg</p>
+    <br />
+    <p>Vertreten durch: Frank Mayer, René Ott</p>
+    <br />
+    <h2 class="text-xl font-bold">Kontaktdaten</h2>
+    <br />
+    <p>E-Mail: <Mailto address="contact@bloodmagesoftware.de" /></p>
+    <p>
+      Telefon: <Tel tel="+49 7131 7485883" />
+    </p>
+    <br />
+    <h2 class="text-xl font-bold">EU-Streitschlichtung</h2>
+    <br />
+    <p>
+      Die Europäische Kommission stellt eine Plattform zur
+      Online-Streitbeilegung (OS) bereit:
+    </p>
+    <p>
+      <a class="underline" href="https://ec.europa.eu/consumers/odr/"
+        >ec.europa.eu/consumers/odr/</a
+      >
+    </p>
+    <br />
+    <p>Unsere E-Mail-Adresse finden Sie oben im Impressum</p>
+  </Card>
+</Layout>

@@ -1,0 +1,9 @@
+---
+export interface Props {
+  address: string;
+}
+
+const { address } = Astro.props;
+---
+
+<a class="inline-block underline" data-email={btoa(address)}></a>

@@ -9,6 +9,7 @@ import mageanoid_02 from "../assets/mageanoid_02.jpg";
 import mageanoid_03 from "../assets/mageanoid_03.jpg";
 import mageanoid_04 from "../assets/mageanoid_04.jpg";
 import mageanoid_05 from "../assets/mageanoid_05.jpg";
+import Card from "../components/Card.astro";
 ---
 
 <Layout>
@@ -18,10 +19,7 @@ import mageanoid_05 from "../assets/mageanoid_05.jpg";
     Library
   </h1>
 
-  <section
-    class="block py-4 px-6 my-16 rounded-xl shadow md:mx-auto bg-neutral-800 shadow-black md:w-[calc(100dvw-1rem)] md:max-w-[101rem]"
-    id="speicher"
-  >
+  <Card id="speicher">
     <h2 class="text-2xl font-bold text-white">Speicher</h2>
     <br />
     <p class="text-pretty">
@@ -54,7 +52,7 @@ import mageanoid_05 from "../assets/mageanoid_05.jpg";
         onclick="navigator.clipboard.writeText('github.com/bloodmagesoftware/speicher')"
       />
     </p>
-  </section>
+  </Card>
 
   <Game
     title="Mageanoid"

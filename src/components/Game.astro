@@ -4,13 +4,11 @@ import linuxLogo from "../assets/linux.svg";
 import macLogo from "../assets/mac.svg";
 import iosLogo from "../assets/ios.svg";
 import androidLogo from "../assets/android.svg";
+import Card from "./Card.astro";
 const { title, img, genres, platforms, release, price } = Astro.props;
 ---
 
-<section
-  class="block py-4 px-6 my-16 rounded-xl shadow md:mx-auto bg-neutral-800 shadow-black md:w-[calc(100dvw-1rem)] md:max-w-[101rem]"
-  id={typeof title == "string" ? title : title.alt}
->
+<Card id={typeof title == "string" ? title : title.alt}>
   <h2 class="text-2xl font-bold text-white">
     {
       typeof title === "string" ? (
@@ -32,7 +30,7 @@ const { title, img, genres, platforms, release, price } = Astro.props;
     Platforms: <span
       class="inline-grid grid-rows-1 grid-flow-col auto-cols-auto gap-2 w-fit"
       >{
-        platforms.map((x) => (
+        platforms.map((x: string) => (
           <img
             draggable="false"
             class="inline-block h-4 aspect-auto"
@@ -55,7 +53,11 @@ const { title, img, genres, platforms, release, price } = Astro.props;
     >
   </p>
   <p>
-    Genres: {genres.map((x, i) => <span>{(i !== 0 ? ", " : "") + x}</span>)}
+    Genres: {
+      genres.map((x: string, i: number) => (
+        <span>{(i !== 0 ? ", " : "") + x}</span>
+      ))
+    }
   </p>
   <br />
   <slot />
@@ -96,4 +98,4 @@ const { title, img, genres, platforms, release, price } = Astro.props;
       />
     )
   }
-</section>
+</Card>

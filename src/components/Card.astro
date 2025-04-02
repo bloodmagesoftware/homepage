@@ -1,0 +1,12 @@
+---
+interface Props {
+  id?: string;
+}
+---
+
+<section
+  id={Astro.props.id}
+  class="block py-4 px-6 my-16 rounded-xl shadow md:mx-auto bg-neutral-800 shadow-black md:w-[calc(100dvw-1rem)] md:max-w-[101rem]"
+>
+  <slot />
+</section>

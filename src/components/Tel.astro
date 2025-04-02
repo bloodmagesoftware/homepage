@@ -1,0 +1,9 @@
+---
+export interface Props {
+  tel: string;
+}
+
+const { tel } = Astro.props;
+---
+
+<a class="inline-block underline" data-tel={btoa(tel)}></a>
