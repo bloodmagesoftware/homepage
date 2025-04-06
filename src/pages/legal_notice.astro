@@ -9,7 +9,7 @@ import Card from "../components/Card.astro";
   <h1
     class="mx-auto mt-8 text-4xl font-bold text-white md:px-2 w-[calc(100dvw-1rem)] max-w-[101rem]"
   >
-    Impressum
+    Impressum / Legal Notice
   </h1>
   <Card>
     <p>Inhalte gemäß §5 DDG</p>
@@ -44,5 +44,41 @@ import Card from "../components/Card.astro";
     </p>
     <br />
     <p>Unsere E-Mail-Adresse finden Sie oben im Impressum</p>
+  </Card>
+
+  <Card>
+    <p>Information according to § 5 DDG</p>
+    <br />
+    <p>Mayer & Ott GbR</p>
+    <br />
+    <p>c/o IP-Management #4914</p>
+    <p>Ludwig-Erhard-Str. 18</p>
+    <p>20459 Hamburg</p>
+    <p>Germany</p>
+    <br />
+    <p>VAT ID No. <code>DE453006444</code></p>
+    <br />
+    <p>Represented by: Frank Mayer, René Ott</p>
+    <br />
+    <h2 class="text-xl font-bold">Contact Information</h2>
+    <br />
+    <p>Email: <Mailto address="contact@bloodmagesoftware.de" /></p>
+    <p>
+      Phone: <Tel tel="+49 7131 7485883" />
+    </p>
+    <br />
+    <h2 class="text-xl font-bold">EU Dispute Resolution</h2>
+    <br />
+    <p>
+      The European Commission provides a platform for online dispute resolution
+      (ODR):
+    </p>
+    <p>
+      <a class="underline" href="https://ec.europa.eu/consumers/odr/"
+        >ec.europa.eu/consumers/odr/</a
+      >
+    </p>
+    <br />
+    <p>Our email address can be found above in the legal notice.</p>
   </Card>
 </Layout>
