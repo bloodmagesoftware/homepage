@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Game from "../components/Game.astro";
 import Steam from "../components/Steam.astro";
+import Mailto from "../components/Mailto.astro";
 
 import copy from "../assets/copy.svg";
 import mageanoid_01 from "../assets/mageanoid_01.jpg";
@@ -12,15 +13,29 @@ import mageanoid_05 from "../assets/mageanoid_05.jpg";
 import Card from "../components/Card.astro";
 ---
 
-<Layout>
-  <h1
+<Layout h1={true}>
+  <p class="text-pretty"></p>
+
+  <h2
+    class="mx-auto mt-8 text-4xl font-bold text-white md:px-2 w-[calc(100dvw-1rem)] max-w-[101rem]"
+  >
+    Contact
+  </h2>
+  <Card id="contact">
+    <p class="text-xs text-neutral-500">E-Mail</p>
+    <Mailto class="text-white" address="contact@bloodmagesoftware.de" />
+  </Card>
+
+  <br />
+
+  <h2
     class="mx-auto mt-8 text-4xl font-bold text-white md:px-2 w-[calc(100dvw-1rem)] max-w-[101rem]"
   >
     Library
-  </h1>
+  </h2>
 
   <Card id="dead_love">
-    <h2 class="text-2xl font-bold text-white">Dead Love</h2>
+    <h3 class="text-2xl font-bold text-white">Dead Love</h3>
     <p class="uppercase">Work in progress</p>
     <br />
     <p class="text-pretty">
@@ -48,7 +63,7 @@ import Card from "../components/Card.astro";
   </Card>
 
   <Card id="qrier">
-    <h2 class="text-2xl font-bold text-white">Qrier</h2>
+    <h3 class="text-2xl font-bold text-white">Qrier</h3>
     <p class="uppercase">Work in progress</p>
     <br />
     <p class="text-pretty">
@@ -69,7 +84,7 @@ import Card from "../components/Card.astro";
   </Card>
 
   <Card id="likeloop">
-    <h2 class="text-2xl font-bold text-white">LikeLoop</h2>
+    <h3 class="text-2xl font-bold text-white">LikeLoop</h3>
     <p class="uppercase">Work in progress</p>
     <br />
     <p class="text-pretty">
@@ -84,7 +99,7 @@ import Card from "../components/Card.astro";
   </Card>
 
   <Card id="speicher">
-    <h2 class="text-2xl font-bold text-white">Speicher</h2>
+    <h3 class="text-2xl font-bold text-white">Speicher</h3>
     <br />
     <p class="text-pretty">
       A lightweight, embedded in-memory NoSQL database for Go applications.

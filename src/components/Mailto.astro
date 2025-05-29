@@ -1,9 +1,15 @@
 ---
+import { twMerge } from "tailwind-merge";
+
 export interface Props {
   address: string;
+  class?: string;
 }
 
 const { address } = Astro.props;
 ---
 
-<a class="inline-block underline" data-email={btoa(address)}></a>
+<a
+  class={twMerge("inline-block underline", Astro.props.class)}
+  data-email={btoa(address)}>{btoa(address)}</a
+>

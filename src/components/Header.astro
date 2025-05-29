@@ -1,6 +1,10 @@
 ---
 import bmsLogo from "../assets/logo.webp";
 import bmsLettering from "../assets/bms_lettering.svg";
+
+export interface Props {
+  h1: boolean;
+}
 ---
 
 <header class="py-2 px-4 shadow bg-neutral-800 shadow-black">
@@ -11,12 +15,26 @@ import bmsLettering from "../assets/bms_lettering.svg";
   >
     <img class="block w-24 aspect-square" src={bmsLogo.src} draggable="false" />
     <p class="block text-2xl font-bold text-white">
-      <img
-        class="block h-16 aspect-auto"
-        src={bmsLettering.src}
-        alt="Bloodmage Software"
-        draggable="false"
-      />
+      {
+        Astro.props.h1 ? (
+          <h1>
+            <span class="hidden">Bloodmage Software</span>
+            <img
+              class="block h-16 aspect-auto"
+              src={bmsLettering.src}
+              alt="Bloodmage Software"
+              draggable="false"
+            />
+          </h1>
+        ) : (
+          <img
+            class="block h-16 aspect-auto"
+            src={bmsLettering.src}
+            alt="Bloodmage Software"
+            draggable="false"
+          />
+        )
+      }
     </p>
   </a>
 </header>
