@@ -19,11 +19,18 @@ import Card from "../components/Card.astro";
   <h2
     class="mx-auto mt-8 text-4xl font-bold text-white md:px-2 w-[calc(100dvw-1rem)] max-w-[101rem]"
   >
-    Contact
+    The Company
   </h2>
   <Card id="contact">
     <p class="text-xs text-neutral-500">E-Mail</p>
     <Mailto class="text-white" address="contact@bloodmagesoftware.de" />
+
+    <p class="text-xs text-neutral-500 mt-4">Press Kit</p>
+    <a
+      class="block underline"
+      href="/static/press_kit.zip"
+      download="bloodmage_software_press_kit.zip">Download</a
+    >
   </Card>
 
   <br />
