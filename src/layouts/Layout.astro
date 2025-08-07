@@ -20,7 +20,7 @@ export interface Props {
   <body class="flex flex-col min-h-dvh">
     <div class="flex-grow">
       <Header h1={Astro.props.h1 ?? false} />
-      <main class="px-2 md:px-0">
+      <main class="max-w-6xl w-[calc(100%-2rem)] mx-auto">
         <slot />
       </main>
     </div>

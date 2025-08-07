@@ -14,69 +14,107 @@ import Card from "../components/Card.astro";
 ---
 
 <Layout h1={true}>
-  <p class="text-pretty"></p>
-
-  <h2
-    class="mx-auto mt-8 text-4xl font-bold text-white md:px-2 w-[calc(100dvw-1rem)] max-w-[101rem]"
+  <section
+    class="mt-64 mb-42 grid-cols-[1fr_1fr] grid-rows-[auto_auto_auto_auto] gap-4"
   >
-    The Company
-  </h2>
-  <Card id="contact">
-    <p class="text-xs text-neutral-500">E-Mail</p>
-    <Mailto class="text-white" address="contact@bloodmagesoftware.de" />
-
-    <p class="text-xs text-neutral-500 mt-4">Press Kit</p>
+    <h2 class="text-4xl font-bold text-white text-balance">
+      Unsere Software: Spaß statt Frust
+    </h2>
+    <p class="mt-8 max-w-4xl text-balance">
+      Wir sind ein kleines Team ambitionierter Entwickler mit einer gemeinsamen
+      Mission.
+    </p>
+    <p class="mb-8 mt-4 max-w-4xl text-balance">
+      Wir schaffen hochwertige Software, die du gerne nutzt. Deine Vision steht
+      bei uns im Mittelpunkt. Ob du eine komplexe Unternehmenssoftware,
+      innovative Entwicklertools oder ein fesselndes Videospiel benötigst, wir
+      setzen deine Ideen mit Leidenschaft um. Wir arbeiten eng mit dir zusammen
+      und konzentrieren uns auf das Wesentliche. Wir schaffen Lösungen, die
+      echten Mehrwert bieten und Freude bereiten.
+    </p>
     <a
-      class="block underline"
-      href="/static/press_kit.zip"
-      download="bloodmage_software_press_kit.zip">Download</a
+      class="flex gap-2 flex-row items-center w-fit rounded-lg bg-rose-400 text-black px-4 py-2 my-4 mr-4"
+      href="mailto:contact@bloodmagesoftware.de"
     >
-  </Card>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+        ></path>
+      </svg>
+      <span>Starten wir unser nächstes Projekt</span>
+    </a>
+    <a
+      class="flex gap-2 flex-row items-center w-fit rounded-lg bg-zinc-400 text-black px-4 py-2 my-4"
+      download="bloodmage_software_press_kit.zip"
+      href="/static/press_kit.zip"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-file-earmark-zip"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.11 0l-.929-.62a1 1 0 0 1-.415-1.074L5 8.438zm2 0H6v.938a1 1 0 0 1-.03.243l-.4 1.598.93.62.929-.62-.4-1.598A1 1 0 0 1 7 8.438z"
+        ></path>
+        <path
+          d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1h-2v1h-1v1h1v1h-1v1h1v1H6V5H5V4h1V3H5V2h1V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"
+        ></path>
+      </svg>
+      <span>Press-kit herunterladen</span>
+    </a>
+  </section>
 
-  <br />
-
-  <h2
-    class="mx-auto mt-8 text-4xl font-bold text-white md:px-2 w-[calc(100dvw-1rem)] max-w-[101rem]"
-  >
-    Library
-  </h2>
+  <h2 class="mt-8 text-4xl font-bold text-white">Unsere Bibliothek</h2>
 
   <Card id="dead_love">
     <h3 class="text-2xl font-bold text-white">Dead Love</h3>
-    <p class="uppercase">Work in progress</p>
+    <p class="uppercase">In Arbeit</p>
     <br />
     <p class="text-pretty">
-      Welcome to Dead Love, where life, death, and romance intertwine! In this
-      unique dating sim, you'll navigate a society where the living and the
-      undead coexist. Can you find love across the veil?
+      Willkommen bei Dead Love, wo Leben, Tod und Romantik miteinander verwoben
+      sind! In diesem einzigartigen Dating-Simulator navigierst du durch eine
+      Gesellschaft, in der die Lebenden und die Untoten koexistieren. Kannst du
+      Liebe jenseits des Schleiers finden?
     </p>
     <br />
     <p class="text-pretty">
-      Every choice you make shapes your story and relationships – and there are
-      a <i>lot</i> of them. Your decisions truly matter, leading to vastly different
-      outcomes. There's no "game over" here; every path you take unfolds into its
-      own unique storyline. Plus, test your abilities with skill checks! Succeed
-      in challenging minigames to impress your potential partners and overcome obstacles
-      in your quest for connection.
+      Jede Entscheidung, die du triffst, prägt deine Geschichte und deine
+      Beziehungen – und davon gibt es <i>eine Menge</i>. Deine Entscheidungen
+      sind wirklich wichtig und führen zu sehr unterschiedlichen Ergebnissen.
+      Hier gibt es kein „Game Over“; jeder Weg, den du einschlägst, entfaltet
+      sich zu einer eigenen, einzigartigen Geschichte. Außerdem kannst du deine
+      Fähigkeiten mit Skill-Checks testen! Meistere herausfordernde Minispiele,
+      um deine potenziellen Partner zu beeindrucken und Hindernisse auf deiner
+      Suche nach Verbindung zu überwinden.
     </p>
     <p class="text-pretty">
-      Will you find your soulmate, living or otherwise? Dive into Dead Love and
-      find out!
+      Wirst du deinen Seelenverwandten finden, lebendig oder anders? Tauche ein
+      in Dead Love und finde es heraus!
     </p>
   </Card>
 
   <Card id="likeloop">
     <h3 class="text-2xl font-bold text-white">LikeLoop</h3>
-    <p class="uppercase">Work in progress</p>
+    <p class="uppercase">In Arbeit</p>
     <br />
     <p class="text-pretty">
-      You want to watch a movie with friends. And even though you all have a
-      list of movies you want to watch, it's hard to find one that you all want
-      to see. Have you ever had this problem? Then LikeLoop is for you!
+      Du möchtest mit Freunden einen Film anschauen. Und obwohl ihr alle eine
+      Liste mit Filmen habt, die ihr sehen möchtet, ist es schwierig, einen Film
+      zu finden, den ihr alle sehen wollt. Hast du dieses Problem schon einmal
+      gehabt? Dann ist LikeLoop genau das Richtige für dich!
     </p>
     <p class="text-pretty">
-      We combine all your watch lists in one LikeLoop account and let you see
-      overlaps with other LikeLoop accounts.
+      Wir kombinieren alle deine Watchlists in einem LikeLoop-Konto und zeigen
+      dir Überschneidungen mit anderen LikeLoop-Konten.
     </p>
   </Card>
 
@@ -84,19 +122,19 @@ import Card from "../components/Card.astro";
     <h3 class="text-2xl font-bold text-white">Speicher</h3>
     <br />
     <p class="text-pretty">
-      A lightweight, embedded in-memory NoSQL database for Go applications.
-      Designed for seamless integration with zero configuration—no external
-      servers, query languages, or code generation. Offers thread-safe
-      operations and an intuitive API for direct interaction with native Go data
-      structures, accelerating development while simplifying real-time data
-      management.
+      Eine leichtgewichtige, eingebettete In-Memory-NoSQL-Datenbank für
+      Go-Anwendungen. Entwickelt für nahtlose Integration ohne Konfiguration –
+      keine externen Server, Abfragesprachen oder Codegenerierung. Bietet
+      threadsichere Operationen und eine intuitive API für die direkte
+      Interaktion mit nativen Go-Datenstrukturen, wodurch die Entwicklung
+      beschleunigt und die Verwaltung von Echtzeitdaten vereinfacht wird.
     </p>
     <p>
-      Take a look at the <a
+      Werfe einen Blick in die <a
         class="underline"
         href="https://github.com/bloodmagesoftware/speicher/wiki"
-        target="_blank">documentation</a
-      > to get some examples.
+        target="_blank">Dokumentation</a
+      > um Beispiele zu sehen.
     </p>
     <br />
     <p
@@ -131,22 +169,25 @@ import Card from "../components/Card.astro";
     price="Free"
   >
     <p class="text-pretty">
-      Dive into the heart-pounding action of Mageanoid. As a powerful mage, your
-      task is to fend off relentless waves of undead skeletons with your magical
-      powers. Each second counts as you unleash your spells and dodge the deadly
-      strikes of their swords. How long can you survive in this epic twin-stick
-      shooter?
+      Tauche ein in die atemberaubende Action von Mageanoid. Als mächtiger
+      Magier ist es deine Aufgabe, mit deinen magischen Kräften unerbittliche
+      Wellen untoter Skelette abzuwehren. Jede Sekunde zählt, während du deine
+      Zaubersprüche entfesselst und den tödlichen Schlägen ihrer Schwerter
+      ausweichst. Wie lange kannst du in diesem epischen Twin-Stick-Shooter
+      überleben?
     </p>
     <ul>
       <li class="text-pretty">
-        Pixel art graphics that bring the undead world to life
+        Pixelgrafik, die die Welt der Untoten zum Leben erweckt
       </li>
-      <li class="text-pretty">Fast-paced twin-stick shooting action</li>
-      <li class="text-pretty">Endless waves of enemies to test your skills</li>
+      <li class="text-pretty">Rasante Twin-Stick-Shooter-Action</li>
+      <li class="text-pretty">
+        Endlose Wellen von Feinden, die deine Fähigkeiten auf die Probe stellen
+      </li>
     </ul>
 
     <Steam href="https://store.steampowered.com/app/3104840/Mageanoid/"
-      >Play on Steam</Steam
+      >Jetzt auf Steam spielen</Steam
     >
   </Game>
 </Layout>
