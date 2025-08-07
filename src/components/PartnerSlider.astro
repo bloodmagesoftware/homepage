@@ -1,0 +1,72 @@
+---
+import { twMerge } from "tailwind-merge";
+import bundspechtUndRabe from "../assets/buntspecht-und-rabe.webp";
+import fotoLeistenschneider from "../assets/foto-leistenschneider.svg";
+import enydyne from "../assets/enydyne.svg";
+
+const partners = [
+  {
+    image: bundspechtUndRabe.src,
+    alt: "Buntspecht und Rabe",
+    href: "https://buntspechtundrabe.de/",
+    specialStyle: "hover:bg-white hover:rounded",
+  },
+  {
+    image: fotoLeistenschneider.src,
+    alt: "Foto Leistenschneider",
+    href: "https://www.foto-leistenschneider.de/",
+  },
+  {
+    image: enydyne.src,
+    alt: "enyDyne",
+    href: "https://enydyne.de/",
+  },
+];
+---
+
+<h3 class="text-xl font-bold mt-16">Unsere Partner und Kunden</h3>
+<div class="slideshow">
+  <div class="flex flex-row gap-24 mt-8">
+    <!-- First set -->
+    {
+      partners.map((x) => (
+        <a
+          class="flex-shrink-0"
+          style={`--mask: url('${x.image}')`}
+          href={x.href}
+        >
+          <img
+            src={x.image}
+            alt={x.alt}
+            draggable="false"
+            class={twMerge(
+              "h-16 w-auto object-contain block",
+              x.specialStyle ?? "",
+            )}
+          />
+        </a>
+      ))
+    }
+
+    <!-- Duplicate set for infinite scroll -->
+    {
+      partners.map((x) => (
+        <a
+          class="duplicate flex-shrink-0"
+          style={`--mask: url('${x.image}')`}
+          href={x.href}
+        >
+          <img
+            src={x.image}
+            alt={x.alt}
+            draggable="false"
+            class={twMerge(
+              "h-16 w-auto object-contain block",
+              x.specialStyle ?? "",
+            )}
+          />
+        </a>
+      ))
+    }
+  </div>
+</div>

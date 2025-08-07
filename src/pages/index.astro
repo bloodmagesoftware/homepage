@@ -10,14 +10,16 @@ import mageanoid_02 from "../assets/mageanoid_02.jpg";
 import mageanoid_03 from "../assets/mageanoid_03.jpg";
 import mageanoid_04 from "../assets/mageanoid_04.jpg";
 import mageanoid_05 from "../assets/mageanoid_05.jpg";
+
 import Card from "../components/Card.astro";
+// import PartnerSlider from "../components/PartnerSlider.astro";
 ---
 
 <Layout h1={true}>
   <section
     class="mt-64 mb-42 grid-cols-[1fr_1fr] grid-rows-[auto_auto_auto_auto] gap-4"
   >
-    <h2 class="text-4xl font-bold text-white text-balance">
+    <h2 class="text-4xl font-bold text-red-100 text-balance">
       Unsere Software: Spaß statt Frust
     </h2>
     <p class="mt-8 max-w-4xl text-balance">
@@ -71,6 +73,8 @@ import Card from "../components/Card.astro";
       </svg>
       <span>Press-kit herunterladen</span>
     </a>
+
+    <!-- <PartnerSlider /> -->
   </section>
 
   <h2 class="mt-8 text-4xl font-bold text-white">Unsere Bibliothek</h2>

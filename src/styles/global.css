@@ -23,3 +23,63 @@ ul {
 ol {
   list-style: decimal;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes slideshow {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-74.77rem);
+    }
+  }
+
+  .slideshow {
+    overflow-x: clip;
+  }
+  .slideshow > * {
+    animation: slideshow 10s linear infinite;
+  }
+  .slideshow:hover > * {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slideshow > div {
+    flex-wrap: wrap;
+  }
+  .duplicate {
+    display: none !important;
+  }
+}
+
+.slideshow > div > a:not(:hover) {
+  @apply bg-neutral-500;
+  mask: var(--mask) no-repeat center/contain;
+  -webkit-mask: var(--mask) no-repeat center/contain;
+}
+
+.slideshow > div > a:not(:hover) > img {
+  visibility: hidden;
+}
+.slideshow img {
+  @apply h-16 aspect-auto;
+}
+
+@media (prefers-contrast: more) {
+  body {
+    background-color: black !important;
+    filter: contrast(110%);
+  }
+  .bg-neutral-800 {
+    background-color: #101010 !important;
+  }
+}
+
+@media (prefers-contrast: less) {
+  body {
+    background-color: #202020 !important;
+    filter: contrast(75%);
+  }
+}
