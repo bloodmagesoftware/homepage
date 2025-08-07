@@ -24,10 +24,10 @@ const { title, img, genres, platforms, release, price } = Astro.props;
     }
   </h2>
   <br />
-  <p>Release: {release}</p>
-  {price ? <p>Price: {price}</p> : null}
+  <p>Veröffentlichung: {release}</p>
+  {price ? <p>Preis: {price}</p> : null}
   <p>
-    Platforms: <span
+    Plattformen: <span
       class="inline-grid grid-rows-1 grid-flow-col auto-cols-auto gap-2 w-fit"
       >{
         platforms.map((x: string) => (
