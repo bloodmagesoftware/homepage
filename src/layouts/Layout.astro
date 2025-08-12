@@ -5,6 +5,7 @@ import "../styles/global.css";
 
 export interface Props {
   h1?: boolean;
+  description?: string;
 }
 ---
 
@@ -15,6 +16,11 @@ export interface Props {
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    {
+      Astro.props.description ? (
+        <meta name="description" content={Astro.props.description} />
+      ) : null
+    }
     <title>Bloodmage Software</title>
   </head>
   <body class="flex flex-col min-h-dvh">
