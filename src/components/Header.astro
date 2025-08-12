@@ -1,6 +1,7 @@
 ---
 import bmsLogo from "../assets/logo.webp";
 import bmsLettering from "../assets/bms_lettering.svg";
+import { Image } from "astro:assets";
 
 export interface Props {
   h1: boolean;
@@ -13,7 +14,12 @@ export interface Props {
     class="flex flex-row gap-2 justify-start items-center"
     draggable="false"
   >
-    <img class="block w-24 aspect-square" src={bmsLogo.src} draggable="false" />
+    <Image
+      class="block w-24 aspect-square"
+      src={bmsLogo}
+      draggable="false"
+      alt="🧙"
+    />
     <p class="block text-2xl font-bold text-white">
       {
         Astro.props.h1 ? (

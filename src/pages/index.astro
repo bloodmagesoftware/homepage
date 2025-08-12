@@ -2,9 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Game from "../components/Game.astro";
 import Steam from "../components/Steam.astro";
-import Mailto from "../components/Mailto.astro";
 
 import copy from "../assets/copy.svg";
+import mageanoid_video from "../assets/mageanoid_trailer.mp4";
 import mageanoid_01 from "../assets/mageanoid_01.jpg";
 import mageanoid_02 from "../assets/mageanoid_02.jpg";
 import mageanoid_03 from "../assets/mageanoid_03.jpg";
@@ -35,7 +35,7 @@ import Card from "../components/Card.astro";
       echten Mehrwert bieten und Freude bereiten.
     </p>
     <a
-      class="flex gap-2 flex-row items-center w-fit rounded-lg bg-rose-400 hover:bg-rose-500 text-black px-4 py-2 my-4 mr-4"
+      class="flex gap-2 flex-row items-center w-fit rounded-lg bg-rose-400 hover:bg-lime-200 text-black px-4 py-2 my-4 mr-4"
       href="mailto:contact@bloodmagesoftware.de"
     >
       <svg
@@ -150,6 +150,8 @@ import Card from "../components/Card.astro";
       >
       <img
         alt="copy"
+        loading="lazy"
+        decoding="async"
         class="ml-4 h-6 cursor-pointer hover:opacity-75"
         src={copy.src}
         onclick="navigator.clipboard.writeText('go get -u github.com/bloodmagesoftware/speicher@latest')"
@@ -160,12 +162,12 @@ import Card from "../components/Card.astro";
   <Game
     title="Mageanoid"
     img={[
-      "/static/mageanoid_trailer.mp4",
-      mageanoid_01.src,
-      mageanoid_02.src,
-      mageanoid_03.src,
-      mageanoid_04.src,
-      mageanoid_05.src,
+      mageanoid_video,
+      mageanoid_01,
+      mageanoid_02,
+      mageanoid_03,
+      mageanoid_04,
+      mageanoid_05,
     ]}
     genres={["Arcade", "Twin Stick Shooter"]}
     platforms={["windows", "mac", "linux"]}

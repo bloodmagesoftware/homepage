@@ -5,7 +5,17 @@ import macLogo from "../assets/mac.svg";
 import iosLogo from "../assets/ios.svg";
 import androidLogo from "../assets/android.svg";
 import Card from "./Card.astro";
+import { Image } from "astro:assets";
 const { title, img, genres, platforms, release, price } = Astro.props;
+
+export interface Props {
+  title: string | { src: string; alt: string };
+  img?: (string | ImageMetadata) | (string | ImageMetadata)[];
+  genres: string[];
+  platforms: string[];
+  release: string;
+  price?: string;
+}
 ---
 
 <Card id={typeof title == "string" ? title : title.alt}>
@@ -33,7 +43,10 @@ const { title, img, genres, platforms, release, price } = Astro.props;
         platforms.map((x: string) => (
           <img
             draggable="false"
+            loading="lazy"
+            decoding="async"
             class="inline-block h-4 aspect-auto"
+            alt={x}
             src={
               x === "windows"
                 ? windowsLogo.src
@@ -62,40 +75,60 @@ const { title, img, genres, platforms, release, price } = Astro.props;
   <br />
   <slot />
   {
-    Array.isArray(img) ? (
-      <div class="flex overflow-x-auto relative flex-row gap-8 w-full overflow-y-clip">
-        {img.map((x) =>
-          x.startsWith("https://") ? (
-            <iframe
-              class="block my-4 h-32 md:h-64 aspect-auto"
-              width="560"
-              height="315"
-              src={x}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            />
-          ) : x.endsWith(".mp4") ? (
-            <video controls class="block my-4 h-32 md:h-64 aspect-auto">
-              <source src={x} type="video/mp4" />
-            </video>
-          ) : (
-            <img
-              class="block my-4 h-32 md:h-64 aspect-auto"
-              src={x}
-              class="block"
-              draggable="false"
-            />
-          ),
-        )}
-      </div>
-    ) : (
-      <img
-        class="block h-32 aspect-auto"
-        src={img}
-        class="block"
-        draggable="false"
-      />
-    )
+    img ? (
+      Array.isArray(img) ? (
+        <div class="flex overflow-x-auto relative flex-row gap-8 w-full overflow-y-clip">
+          {img.map((x, i) =>
+            typeof x == "string" ? (
+              x.startsWith("https://") ? (
+                <iframe
+                  class="block my-4 h-32 md:h-64 aspect-auto"
+                  width="560"
+                  height="315"
+                  src={x}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              ) : x.endsWith(".mp4") ? (
+                <video controls class="block my-4 h-32 md:h-64 aspect-auto">
+                  <source src={x} type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  class="block my-4 h-32 md:h-64 aspect-auto"
+                  src={x}
+                  alt={`${title} Screenshot`}
+                  class="block"
+                  draggable="false"
+                />
+              )
+            ) : (
+              <Image
+                src={x}
+                alt={`${title} Screenshot`}
+                class="block my-4 h-32 md:h-64 aspect-auto"
+                draggable="false"
+              />
+            ),
+          )}
+        </div>
+      ) : typeof img == "string" ? (
+        <img
+          class="block h-32 aspect-auto"
+          src={img}
+          class="block"
+          draggable="false"
+          alt={`${title} Screenshot`}
+        />
+      ) : (
+        <Image
+          src={img}
+          alt={`${title} Screenshot`}
+          class="block h-32 aspect-auto"
+          draggable="false"
+        />
+      )
+    ) : null
   }
 </Card>
