@@ -6,6 +6,24 @@ body {
   scrollbar-width: auto;
 }
 
+:root {
+  --spring-elastic: linear(
+    0,
+    0.029 1.6%,
+    0.123 3.5%,
+    0.651 10.6%,
+    0.862 14.1%,
+    1.002 17.7%,
+    1.046 19.6%,
+    1.074 21.6%,
+    1.087 23.9%,
+    1.086 26.6%,
+    1.014 38.5%,
+    0.994 46.3%,
+    1
+  );
+}
+
 body * {
   scrollbar-color: var(--color-neutral-400) var(--color-neutral-800);
   scrollbar-width: auto;
@@ -46,6 +64,12 @@ ol {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0 !important;
+  }
   .slideshow > div {
     flex-wrap: wrap;
   }
@@ -81,5 +105,76 @@ ol {
   body {
     background-color: #202020 !important;
     filter: contrast(75%);
+  }
+}
+
+nav {
+  @apply flex flex-row w-fit mt-4 isolate;
+  anchor-name: --hovered-link;
+}
+nav > a {
+  @apply block py-2 px-4 text-white;
+}
+@media not (hover: hover) {
+  nav {
+    @apply bg-neutral-900 rounded-xl;
+  }
+}
+@media (hover: hover) {
+  @media (prefers-reduced-motion: reduce) {
+    nav {
+      @apply bg-neutral-900 rounded-xl;
+    }
+    nav > a {
+      @apply bg-neutral-900 rounded-xl;
+    }
+    nav > a:hover {
+      @apply bg-rose-400 text-black;
+      transition:
+        background-color 200ms ease-out,
+        color 200ms ease-out;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports not (position-anchor: --hovered-link) {
+      nav {
+        @apply bg-neutral-900 rounded-xl;
+      }
+      nav > a {
+        @apply bg-neutral-900 rounded-xl;
+      }
+      nav > a:hover {
+        @apply bg-rose-400 text-black;
+        transition:
+          background-color 200ms ease-out,
+          color 200ms ease-out;
+      }
+    }
+    @supports (position-anchor: --hovered-link) {
+      nav {
+        @apply bg-neutral-900 rounded-xl;
+      }
+      nav > a:hover {
+        anchor-name: --hovered-link;
+        @apply text-black;
+        transition: color 200ms ease-out;
+      }
+      nav::after {
+        content: "";
+        @apply block absolute bg-neutral-900 pointer-events-none rounded-xl -z-10;
+        left: anchor(left);
+        right: anchor(right);
+        bottom: anchor(bottom);
+        top: anchor(top);
+        position-anchor: --hovered-link;
+        transition:
+          left 300ms var(--spring-elastic),
+          right 300ms var(--spring-elastic),
+          background-color 500ms ease-out;
+      }
+      nav:hover::after {
+        @apply bg-rose-400;
+      }
+    }
   }
 }
