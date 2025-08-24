@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+export interface Props {
+  firstName: string;
+  lastName: string;
+  role: string;
+  image?: ImageMetadata;
+  email?: string;
+  personalWebsite?: string;
+  linkedin?: string;
+  github?: string;
+  twitter?: string;
+  reddit?: string;
+}
+
+const {
+  firstName,
+  lastName,
+  image,
+  email,
+  personalWebsite,
+  role,
+  linkedin,
+  github,
+  twitter,
+  reddit,
+} = Astro.props;
+---
+
+<h1 class="mt-8 ml-4 text-xl">{firstName} {lastName}</h1>
+<div class="mx-4 flex flex-col gap-4 mt-8">
+  <p>{role}</p>
+  {
+    email && (
+      <a class="underline" href={`mailto:${email}`} target="_blank">
+        {email}
+      </a>
+    )
+  }
+  {
+    personalWebsite && (
+      <a class="underline" href={personalWebsite} target="_blank">
+        Persönliche Webseite: {personalWebsite}
+      </a>
+    )
+  }
+  {
+    linkedin && (
+      <a
+        class="underline"
+        href={`https://www.linkedin.com/in/${linkedin}`}
+        target="_blank"
+      >
+        LinkedIn
+      </a>
+    )
+  }
+  {
+    github && (
+      <a
+        class="underline"
+        href={`https://github.com/${github}`}
+        target="_blank"
+      >
+        GitHub
+      </a>
+    )
+  }
+  {
+    twitter && (
+      <a
+        class="underline"
+        href={`https://twitter.com/${twitter}`}
+        target="_blank"
+      >
+        Twitter
+      </a>
+    )
+  }
+  {
+    reddit && (
+      <a
+        class="underline"
+        href={`https://www.reddit.com/user/${reddit}`}
+        target="_blank"
+      >
+        Reddit
+      </a>
+    )
+  }
+  {
+    image && (
+      <Image
+        class="h-48 w-48 rounded-lg pointer-events-none"
+        src={image}
+        alt={`${firstName} ${lastName}`}
+        loading="eager"
+        draggable="false"
+      />
+    )
+  }
+</div>

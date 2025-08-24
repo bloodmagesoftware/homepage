@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const people = [
+  {
+    name: "Frank Mayer",
+    slug: "frank_mayer",
+  },
+  {
+    name: "René Ott",
+    slug: "rene_ott",
+  },
+];
+---
+
+<Layout>
+  <h1 class="mt-8 ml-4 text-xl">Team</h1>
+  <ul class="mx-4 mt-8 list-disc">
+    {
+      people.map((person) => (
+        <li>
+          <a class="underline" href={`/team/${person.slug}`}>
+            {person.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
