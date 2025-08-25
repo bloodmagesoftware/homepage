@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BusinessCard, {
+  type Props as BusinessCardProps,
+} from "../components/BusinessCard.astro";
+import frankMayerImage from "../assets/frank_mayer.webp";
+
+const people: BusinessCardProps[] = [
+  {
+    firstName: "Frank",
+    lastName: "Mayer",
+    role: "Software Architect",
+    email: "frank@bloodmagesoftware.de",
+    personalWebsite: "https://frankmayer.dev",
+    socialMedia: {
+      linkedin: "frank-mayer-dev",
+      github: "tsukinoko-kun",
+    },
+    image: frankMayerImage,
+  },
+  {
+    firstName: "René",
+    lastName: "Ott",
+    role: "Software Developer",
+    email: "rene@bloodmagesoftware.de",
+  },
+];
+---
+
+<Layout>
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {people.map((person) => <BusinessCard {...person} />)}
+  </div>
+</Layout>

@@ -1,17 +1,66 @@
 ---
 import { Image } from "astro:assets";
-export interface Props {
-  firstName: string;
-  lastName: string;
-  role: string;
-  image?: ImageMetadata;
-  email?: string;
-  personalWebsite?: string;
-  linkedin?: string;
-  github?: string;
-  twitter?: string;
-  reddit?: string;
+import Card from "./Card.astro";
+import linkedinIcon from "../assets/linkedin.svg";
+import githubIcon from "../assets/github.svg";
+import redditIcon from "../assets/reddit.svg";
+import xIcon from "../assets/twitter-x.svg";
+import { z } from "zod";
+
+/**
+ * Runtime guard that checks the shape of Astro's global ImageMetadata and
+ * — if present — verifies any symbol named "isESMImport" holds the value true.
+ *
+ * This function returns true for objects that match the runtime shape of
+ * ImageMetadata. It cannot prove TypeScript-declared identity at runtime.
+ */
+function isLikelyImageMetadata(val: unknown): val is ImageMetadata {
+  if (!val || typeof val !== "object") return false;
+  const v = val as Record<string | symbol, unknown>;
+
+  if (typeof v.src !== "string") return false;
+  if (typeof v.width !== "number" || Number.isNaN(v.width)) return false;
+  if (typeof v.height !== "number" || Number.isNaN(v.height)) return false;
+  if (v.format === undefined) return false;
+  if (v.orientation !== undefined && typeof v.orientation !== "number")
+    return false;
+
+  // If a symbol with description "isESMImport" exists, it must equal true.
+  const syms = Object.getOwnPropertySymbols(v);
+  for (const s of syms) {
+    if (s.description === "isESMImport") {
+      if (v[s] !== true) return false;
+    }
+  }
+
+  return true;
 }
+
+const ImageMetadataSchema = z.custom<ImageMetadata>((v) =>
+  isLikelyImageMetadata(v),
+);
+
+const PropsSchema = z
+  .object({
+    firstName: z.string(),
+    lastName: z.string(),
+    role: z.string(),
+    image: ImageMetadataSchema.optional(),
+    email: z.email().optional(),
+    personalWebsite: z.string().optional(),
+    socialMedia: z
+      .object({
+        linkedin: z.string().optional(),
+        github: z.string().optional(),
+        reddit: z.string().optional(),
+        x: z.string().optional(),
+      })
+      .strict()
+      .optional(),
+  })
+  .strict();
+
+export type Props = z.infer<typeof PropsSchema>;
 
 const {
   firstName,
@@ -20,73 +69,75 @@ const {
   email,
   personalWebsite,
   role,
-  linkedin,
-  github,
-  twitter,
-  reddit,
-} = Astro.props;
+  socialMedia,
+} = PropsSchema.parse(Astro.props);
 ---
 
-<h1 class="mt-8 ml-4 text-xl">{firstName} {lastName}</h1>
-<div class="mx-4 flex flex-col gap-4 mt-8">
-  <p>{role}</p>
+<Card class="flex flex-col gap-4 my-4">
+  <h2 class="text-xl">{firstName} {lastName}</h2>
+  <p>
+    {role}
+  </p>
   {
     email && (
-      <a class="underline" href={`mailto:${email}`} target="_blank">
+      <a class="underline break-all" href={`mailto:${email}`} target="_blank">
         {email}
       </a>
     )
   }
   {
     personalWebsite && (
-      <a class="underline" href={personalWebsite} target="_blank">
-        Persönliche Webseite: {personalWebsite}
+      <a href={personalWebsite} target="_blank">
+        <span class="inline-block">Persönliche Webseite:</span>{" "}
+        <span class="inline-block underline break-all">{personalWebsite}</span>
       </a>
     )
   }
   {
-    linkedin && (
-      <a
-        class="underline"
-        href={`https://www.linkedin.com/in/${linkedin}`}
-        target="_blank"
-      >
-        LinkedIn
-      </a>
-    )
-  }
-  {
-    github && (
-      <a
-        class="underline"
-        href={`https://github.com/${github}`}
-        target="_blank"
-      >
-        GitHub
-      </a>
-    )
-  }
-  {
-    twitter && (
-      <a
-        class="underline"
-        href={`https://twitter.com/${twitter}`}
-        target="_blank"
-      >
-        Twitter
-      </a>
-    )
-  }
-  {
-    reddit && (
-      <a
-        class="underline"
-        href={`https://www.reddit.com/user/${reddit}`}
-        target="_blank"
-      >
-        Reddit
-      </a>
-    )
+    socialMedia ? (
+      <div class="flex flex-row flex-wrap gap-4 w-full">
+        {socialMedia.linkedin && (
+          <a
+            href={`https://www.linkedin.com/in/${socialMedia.linkedin}`}
+            target="_blank"
+            class="bg-neutral-900 hover:bg-sky-950 rounded-lg"
+          >
+            <Image
+              src={linkedinIcon}
+              alt="LinkedIn"
+              class="block h-4 w-4 m-4"
+            />
+          </a>
+        )}
+        {socialMedia.github && (
+          <a
+            href={`https://github.com/${socialMedia.github}`}
+            target="_blank"
+            class="bg-neutral-900 hover:bg-indigo-950 rounded-lg"
+          >
+            <Image src={githubIcon} alt="GitHub" class="block h-4 w-4 m-4" />
+          </a>
+        )}
+        {socialMedia.reddit && (
+          <a
+            href={`https://www.reddit.com/user/${socialMedia.reddit}`}
+            target="_blank"
+            class="bg-neutral-900 hover:bg-orange-950 rounded-lg"
+          >
+            <Image src={redditIcon} alt="Reddit" class="block h-4 w-4 m-4" />
+          </a>
+        )}
+        {socialMedia.x && (
+          <a
+            href={`https://twitter.com/${socialMedia.x}`}
+            target="_blank"
+            class="bg-neutral-900 hover:bg-gray-900 rounded-lg"
+          >
+            <Image src={xIcon} alt="X" class="block h-4 w-4 m-4" />
+          </a>
+        )}
+      </div>
+    ) : null
   }
   {
     image && (
@@ -99,4 +150,4 @@ const {
       />
     )
   }
-</div>
+</Card>

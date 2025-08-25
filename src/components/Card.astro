@@ -1,12 +1,18 @@
 ---
+import { twMerge } from "tailwind-merge";
+
 interface Props {
   id?: string;
+  class?: string;
 }
 ---
 
 <section
   id={Astro.props.id}
-  class="block py-4 px-6 my-16 rounded-xl shadow bg-neutral-800 shadow-black"
+  class={twMerge(
+    "block py-4 px-6 my-16 rounded-xl shadow bg-neutral-800 shadow-black",
+    Astro.props.class,
+  )}
 >
   <slot />
 </section>

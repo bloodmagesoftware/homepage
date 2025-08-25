@@ -109,7 +109,7 @@ ol {
 }
 
 nav {
-  @apply flex flex-row w-fit mt-4 isolate;
+  @apply flex flex-row flex-wrap w-fit mt-4 isolate;
   anchor-name: --hovered-link;
 }
 nav > a {
