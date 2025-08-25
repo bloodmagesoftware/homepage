@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Card from "./Card.astro";
+import Mailto from "./Mailto.astro";
 import linkedinIcon from "../assets/linkedin.svg";
 import githubIcon from "../assets/github.svg";
 import redditIcon from "../assets/reddit.svg";
@@ -80,9 +81,9 @@ const {
   </p>
   {
     email && (
-      <a class="underline break-all" href={`mailto:${email}`} target="_blank">
+      <Mailto class="underline break-all" address={email}>
         {email}
-      </a>
+      </Mailto>
     )
   }
   {

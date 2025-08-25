@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Game from "../components/Game.astro";
 import Steam from "../components/Steam.astro";
+import Mailto from "../components/Mailto.astro";
 
 import copy from "../assets/copy.svg";
 import mageanoid_video from "../assets/mageanoid_trailer.mp4";
@@ -34,9 +35,9 @@ import Card from "../components/Card.astro";
       und konzentrieren uns auf das Wesentliche. Wir schaffen Lösungen, die
       echten Mehrwert bieten und Freude bereiten.
     </p>
-    <a
-      class="flex gap-2 flex-row items-center w-fit rounded-lg bg-rose-400 hover:bg-lime-200 text-black px-4 py-2 my-4 mr-4"
-      href="mailto:contact@bloodmagesoftware.de"
+    <Mailto
+      class="no-underline flex gap-2 flex-row items-center w-fit rounded-lg bg-rose-400 hover:bg-lime-200 text-black px-4 py-2 my-4 mr-4"
+      address="contact@bloodmagesoftware.de"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -49,8 +50,9 @@ import Card from "../components/Card.astro";
           d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
         ></path>
       </svg>
+
       <span>Starten wir unser nächstes Projekt</span>
-    </a>
+    </Mailto>
 
     <!-- <PartnerSlider /> -->
   </section>

@@ -1,19 +1,27 @@
+function isAnchor(el: Element): el is HTMLAnchorElement {
+  return el.tagName === "A";
+}
+
 document.querySelectorAll("a[data-email]").forEach((el) => {
-  console.log(el);
-  const codedEmail = (el as HTMLElement).dataset.email;
+  if (!isAnchor(el)) return;
+  const codedEmail = el.dataset.email;
   if (!codedEmail) return;
-  console.log(codedEmail);
   const email = atob(codedEmail);
-  (el as HTMLAnchorElement).href = `mailto:${email}`;
-  (el as HTMLAnchorElement).innerText = email;
-  delete (el as HTMLElement).dataset.email;
+  el.href = `mailto:${email}`;
+  if (el.innerText === codedEmail) {
+    el.innerText = email;
+  }
+  delete el.dataset.email;
 });
 
 document.querySelectorAll("a[data-tel]").forEach((el) => {
-  const codedTel = (el as HTMLElement).dataset.tel;
+  if (!isAnchor(el)) return;
+  const codedTel = el.dataset.tel;
   if (!codedTel) return;
   const tel = atob(codedTel);
-  (el as HTMLAnchorElement).href = `tel:${tel.replace(/[^+\d]+/g, "")}`;
-  (el as HTMLAnchorElement).innerText = tel;
-  delete (el as HTMLElement).dataset.tel;
+  el.href = `tel:${tel.replace(/[^+\d]+/g, "")}`;
+  if (el.innerText === codedTel) {
+    el.innerText = tel;
+  }
+  delete el.dataset.tel;
 });

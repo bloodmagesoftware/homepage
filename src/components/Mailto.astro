@@ -11,5 +11,6 @@ const { address } = Astro.props;
 
 <a
   class={twMerge("inline-block underline", Astro.props.class)}
-  data-email={btoa(address)}>{btoa(address)}</a
+  data-email={btoa(address)}
+  >{Astro.slots.has("default") ? <slot /> : btoa(address)}</a
 >
